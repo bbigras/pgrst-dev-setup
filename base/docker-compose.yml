@@ -4,7 +4,7 @@ services:
     image: postgres:latest
     command: postgres -c log_statement=all
     ports:
-      - "5000:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_USER=superuser
       - POSTGRES_PASSWORD=superuserpass

@@ -4,7 +4,7 @@ start_directory: ./
 
 environment:
   COMPOSE_PROJECT_NAME: 'pgrst-dev'
-  COMPOSE_FILE: "./composes/docker-compose.yml"
+  COMPOSE_FILE: "./base/docker-compose.yml"
 
 windows:
 - window_name: pg & pgrst
@@ -14,25 +14,25 @@ windows:
 
 - window_name: pgcli
   shell_command_before:
-    - while [[ "$(docker-compose ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
+    - while [[ "$(docker-compose -f $COMPOSE_FILE -p $COMPOSE_PROJECT_NAME ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
   panes:
   - ./start pgcli
 
 - window_name: psql
   shell_command_before:
-    - while [[ "$(docker-compose ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
+    - while [[ "$(docker-compose -f $COMPOSE_FILE -p $COMPOSE_PROJECT_NAME ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
   panes:
   - ./start psql
 
 - window_name: http-prompt
   shell_command_before:
-    - while [[ "$(docker-compose ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
+    - while [[ "$(docker-compose -f $COMPOSE_FILE -p $COMPOSE_PROJECT_NAME ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
   panes:
   - ./start http-prompt
 
 - window_name: pgadmin4 & swagger & mitmweb
   shell_command_before:
-    - while [[ "$(docker-compose ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
+    - while [[ "$(docker-compose -f $COMPOSE_FILE -p $COMPOSE_PROJECT_NAME ps -q | wc -l)" -eq "0" ]]; do sleep 1; done
   layout: main-horizontal
   panes:
   - ./start pgadmin4
