@@ -3,6 +3,14 @@
 pgrst-dev-setup is a collection of docker-compose ymls, shell scripts and some config files for a quick workflow to experiment with PostgREST.  
 It provides the database, the application and some tooling to help interact with the system. After a session it also saves the docker logs for i.e. debugging purposes.
 
+## Ports
+
+- 5001: postgrest
+- 5002: postgrest (will show up in mitmproxy web)
+- 5003: pgadmin4
+- 5004: swagger
+- 5005: mitmproxy web
+
 ## Requirements
 
 You need to have `docker` and `docker-compose` installed. If you have `tmuxp` installed, you can also use the session file to a even quicker start.

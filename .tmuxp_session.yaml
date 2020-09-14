@@ -6,6 +6,9 @@ environment:
   COMPOSE_PROJECT_NAME: 'pgrst-dev'
   COMPOSE_FILE: "./base/docker-compose.yml"
 
+global_options:
+  default-shell: /run/current-system/sw/bin/bash
+
 windows:
 - window_name: pg & pgrst
   focus: True
